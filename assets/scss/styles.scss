@@ -29,6 +29,10 @@ $color_2:#26a69a;
 }  
 .content{
 	margin-bottom:70px;
+	>.row{
+		margin-left:0;
+		margin-right:0;
+	}
 }
 
 .preloader-wrapper{

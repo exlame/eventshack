@@ -1,7 +1,9 @@
 <?php
+session_start();
 require 'vendor/autoload.php';
 require 'src/helpers/helpers.php';
 
+set_session_default();
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'home');
     // {id} must be a number (\d+)
@@ -9,6 +11,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     // The /{title} suffix is optional
     $r->addRoute('POST', '/get/{component}', 'get');
     $r->addRoute('GET', '/get/{component}', 'get');
+    $r->addRoute('GET', '/set_config/{key}/{value}', 'set_config');
 });
 
 // Fetch method and URI from somewhere

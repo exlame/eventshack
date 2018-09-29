@@ -1,5 +1,25 @@
+	var position;
 $(document).ready(function(){
+
+	var activetab = $('.tabs .tab .active').attr('href');
+
 	
+	
+	function getLocation() {
+			if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+					console.log("Geolocation is not supported by this browser.");
+			}
+	}
+	function showPosition(newposition) {
+			position = {
+				latitude: newposition.coords.latitude,
+				longitude: newposition.coords.longitude
+			};
+			set_tab($(activetab));
+	}
+	getLocation();
 	function set_tab(target){
 		var id = $(target).attr('id');
 		
@@ -7,8 +27,8 @@ $(document).ready(function(){
 			add_loader($(this).find('.content'));
 		});
 		$(target).find('.content')
-		var content = $(target).find('.content');
-		content.load('/tab/'+id, function(e){
+			var content = $(target).find('.content');
+			content.load('/tab/'+id,'lat='+position.latitude+'&long='+position.longitude, function(e){
 			
 			$(this).find('img').each(function(){
 				$(this).closest('.card').fadeIn();
@@ -41,10 +61,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	var activetab = $('.tabs .tab .active').attr('href');
-
 	
-	set_tab($(activetab));
 	
 	
 	function activateUI(){
@@ -52,5 +69,13 @@ $(document).ready(function(){
 	}
 	activateUI();
 	
+	$('body').on('click', '#tab4 input', function(){
+		var value = 0;
+		if($(this).is(':checked')){
+			value = 1;
+		}
+		$.get('/set_config/'+$(this).attr('name')+'/'+value);
+	});
 	
+
 }); 

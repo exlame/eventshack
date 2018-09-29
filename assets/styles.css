@@ -6536,6 +6536,9 @@ input[type=range]::-ms-thumb {
 
 .content {
   margin-bottom: 70px; }
+  .content > .row {
+    margin-left: 0;
+    margin-right: 0; }
 
 .preloader-wrapper {
   position: fixed;

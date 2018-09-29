@@ -22,7 +22,8 @@
 
 
 
-
-<div class="row">
-	<?php display_events() ?>
+<div class="ajax_content">
+	<div class="row">
+		<?php display_events() ?>
+	</div>
 </div>
