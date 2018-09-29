@@ -1,0 +1,14 @@
+{
+    "name": "hackaton/eventshack",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Danny Ouellet",
+            "email": "danny_ouellet@hotmail.com"
+        }
+    ],
+    "require": {
+        "catfan/Medoo": "^1.5",
+        "nikic/fast-route": "^1.3"
+    }
+}

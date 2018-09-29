@@ -1,44 +1,41 @@
-<!DOCTYPE html>
-  <html>
-    <head>
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-					<link href="assets/styles.css" rel="stylesheet">
+<?php
+require 'vendor/autoload.php';
+require 'src/helpers/helpers.php';
 
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<style>
-				
-			</style>
-    </head>
+$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+    $r->addRoute('GET', '/', 'home');
+    // {id} must be a number (\d+)
+    $r->addRoute('GET', '/tab/{name}', 'tab');
+    // The /{title} suffix is optional
+    $r->addRoute('POST', '/get/{component}', 'get');
+    $r->addRoute('GET', '/get/{component}', 'get');
+});
 
-    <body>
-			 <nav class="nav-extended">
+// Fetch method and URI from somewhere
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
 
-					<div class="nav-content">
-						<ul class="tabs tabs-transparent">
-							<li class="tab"><a href="#test1">Test 1</a></li>
-							<li class="tab"><a class="active" href="#test2">Test 2</a></li>
-							<li class="tab"><a href="#test4">Test 4</a></li>
-						</ul>
-					</div>
-				</nav>
+// Strip query string (?foo=bar) and decode URI
+if (false !== $pos = strpos($uri, '?')) {
+    $uri = substr($uri, 0, $pos);
+}
+$uri = rawurldecode($uri);
 
-				<ul class="sidenav" id="mobile-demo">
-					<li><a href="sass.html">Sass</a></li>
-					<li><a href="badges.html">Components</a></li>
-					<li><a href="collapsible.html">JavaScript</a></li>
-				</ul>
+define('BASEPATH',__DIR__);
 
-				<div id="test1" class="col s12">Test 1</div>
-				<div id="test2" class="col s12">Test 2</div>
-				<div id="test4" class="col s12">Test 4</div>
-	<!--JavaScript at end of body for optimized loading-->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-	<script src="assets/scripts.js"></script>
-    </body>
-  </html>
+$routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+switch ($routeInfo[0]) {
+    case FastRoute\Dispatcher::NOT_FOUND:
+        http_response_code(404);
+				die();
+        break;
+    case FastRoute\Dispatcher::METHOD_NOT_ALLOWED:
+        $allowedMethods = $routeInfo[1];
+        // ... 405 Method Not Allowed
+        break;
+    case FastRoute\Dispatcher::FOUND:
+        $handler = $routeInfo[1];
+        $vars = $routeInfo[2];
+        require('src/views/'.$handler.'.php');
+        break;
+}
