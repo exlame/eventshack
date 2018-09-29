@@ -35,14 +35,10 @@
 
 				<div id="tab1" class="col s12 tab_content">
 					<div class="content"> 
-						<div class="container">
-							</div>
 					</div>
 				</div>
 				<div id="tab2" class="col s12 tab_content">
 					<div class="content">
-						<div class="container">
-							</div>
 					</div>
 					
 				</div>
@@ -54,8 +50,6 @@
 				</div>
 				<div id="tab4" class="col s12 tab_content">
 					<div class="content">
-						<div class="container">
-							</div>
 					</div>
 				</div>
 			<!--JavaScript at end of body for optimized loading-->

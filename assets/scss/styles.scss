@@ -28,7 +28,7 @@ $color_2:#26a69a;
 	}
 }  
 .content{
-	margin-bottom:30px;
+	margin-bottom:70px;
 }
 
 .preloader-wrapper{
@@ -58,9 +58,7 @@ h2{
 }
 
 @media #{$medium-and-down} {
-	.container{
-		width:100%;
-	}
+	
 }
 
 .card-action{
@@ -74,4 +72,31 @@ h2{
 .filtres{
 	width:90%;
 	margin:0 auto;
+}
+
+
+#tab4{
+	h2{
+		margin-bottom:20px;
+		i{
+			font-size:15px;
+		}
+	}
+	.container{
+		margin-bottom:20px;
+	}
+	.switch{
+		margin-bottom:5px;
+		label{
+			font-size:22px;
+			padding-left:70px;
+		}
+		position:relative;
+		span{
+			position:absolute;
+			top:50%;
+			left:0;
+			transform:translateY(-50%);
+		}
+	}
 }

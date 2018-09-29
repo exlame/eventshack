@@ -4,10 +4,10 @@ $(document).ready(function(){
 		var id = $(target).attr('id');
 		
 		$('.tab_content').each(function(){
-			add_loader($(this).find('.container'));
+			add_loader($(this).find('.content'));
 		});
 		$(target).find('.content')
-		var content = $(target).find('.container');
+		var content = $(target).find('.content');
 		content.load('/tab/'+id, function(e){
 			
 			$(this).find('img').each(function(){

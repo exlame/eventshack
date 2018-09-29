@@ -25,8 +25,10 @@
 		</div>
 	<?php }
 	
+function get_events($filters = null){
 	
-	function get_events(){
+	
+	
 	return 
 		[
 			[
@@ -48,11 +50,15 @@
 		];
 	}
 	
-	function display_events (){
-		$events = get_events();
+	function display_events ($filters = null){
+		
+		$events = get_events($filters);
 		foreach($events as $event){
 			card($event);
 		}
 	}
 	
+	function display_my_events (){
+		display_events();
+	}
 ?>

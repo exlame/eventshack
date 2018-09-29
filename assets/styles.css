@@ -6535,7 +6535,7 @@ input[type=range]::-ms-thumb {
     font-size: 30px; }
 
 .content {
-  margin-bottom: 30px; }
+  margin-bottom: 70px; }
 
 .preloader-wrapper {
   position: fixed;
@@ -6554,10 +6554,6 @@ h2 {
 .card {
   display: none; }
 
-@media only screen and (max-width: 992px) {
-  .container {
-    width: 100%; } }
-
 .card-action .badge {
   background: #26a69a;
   color: #fff; }
@@ -6565,3 +6561,23 @@ h2 {
 .filtres {
   width: 90%;
   margin: 0 auto; }
+
+#tab4 h2 {
+  margin-bottom: 20px; }
+  #tab4 h2 i {
+    font-size: 15px; }
+
+#tab4 .container {
+  margin-bottom: 20px; }
+
+#tab4 .switch {
+  margin-bottom: 5px;
+  position: relative; }
+  #tab4 .switch label {
+    font-size: 22px;
+    padding-left: 70px; }
+  #tab4 .switch span {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%); }
