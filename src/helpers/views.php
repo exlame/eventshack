@@ -26,7 +26,7 @@ function card($data){ ?>
 						<?php } ?>
 				</div>
 				<div class="card-action">
-					<a href="<?= $data['href'] ?>">
+					<a target="_blank" href="<?= $data['href'] ?>">
 						<?php if($data['source'] == 'facebook'){ ?>
 							Événement <i class="fab fa-facebook-square"></i>
 						<?php } ?>
@@ -35,7 +35,7 @@ function card($data){ ?>
 						<?php } ?>
 					</a>
 					<?php foreach (explode(' ',str_replace('& ','',$data['categorie'])) as $cat) { ?>
-							<span class="badge cat"><?= $cat ?></span>
+					<span class="badge cat"><?= ucfirst($cat) ?></span>
 						<?php } ?>
 				</div>
 			</div>

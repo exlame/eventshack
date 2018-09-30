@@ -71,7 +71,7 @@ function get_events($filters = null, $pos = null){
 as distance 
 					FROM organisedevent  $where
 					having distance < {$filters['distance']} 
-					ORDER BY distance;");
+					ORDER BY start_time;");
 $datas = [];
 $index=0;
 	while ($data = $query->fetch(PDO::FETCH_ASSOC))
