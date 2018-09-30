@@ -2,4 +2,4 @@
 *.js
 
 /vendor/
-*.php
+/env.php
