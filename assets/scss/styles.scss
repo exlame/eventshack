@@ -1,5 +1,6 @@
-$color_2:#26a69a;
-
+$color_1:#ED1E79;
+$color_2:#00C6A9;
+$color_dark:#424242;
 
 @import "materialize/materialize";
 
@@ -15,7 +16,12 @@ $color_2:#26a69a;
   }
 }
 
-
+nav{
+	background:$color_dark;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating){
+	color:$color_1;
+}
 #nav_bottom{
 	position:fixed;
 	bottom:0;
@@ -27,6 +33,12 @@ $color_2:#26a69a;
 		font-size:30px;
 	}
 }  
+.logo{
+	width:30px;
+	position:relative;
+	bottom:-6px;
+	left:-10px;
+}
 .content{
 	margin-bottom:70px;
 	.row{
@@ -51,7 +63,7 @@ h2{
 	padding: 10px 0;
 	color:#fff;
 	font-weight:bold;
-	@extend .grey, .darken-3;
+	background:$color_1;
 }
 
 .card-title{
@@ -88,8 +100,11 @@ h2{
 		font-weight:300;
 		margin-top:0;
 	}
-	.btn_favorite.added{
-		background:red;
+	.btn_favorite{
+		background:$color_2; 
+		&.added{
+			background:$color_1;
+		}
 	}
 }
 

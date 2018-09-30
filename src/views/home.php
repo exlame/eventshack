@@ -16,7 +16,8 @@
     <body>
 			<nav>
 				<div class="nav-wrapper">
-					<a href="#" class="brand-logo center">EventsHack</a>
+					
+					<a href="#" class="brand-logo center"><img class="logo" src="/assets/img/logo-eventshack.png">EventsHack</a>
 				</div>
 			</nav>
 			 <nav id="nav_bottom" class="nav-extended">
