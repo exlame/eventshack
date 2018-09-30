@@ -56,9 +56,9 @@ function get_cats(){
 					'notif_weekend' => false,
 					'notif_week' => false,
 					'dispo_night' => true,
-					'dispo_day' => false,
-					'dispo_week' => false,
-					'dispo_weekend' => false,
+					'dispo_day' => true,
+					'dispo_week' => true,
+					'dispo_weekend' => true,
 					'distance' => '50'
 			);
 			
