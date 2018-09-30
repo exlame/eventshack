@@ -1,4 +1,4 @@
 
 RewriteEngine On
-RewriteCond %{REQUEST_URI} !current/web/
-RewriteRule (.*) /current/web/$1 [L]
+RewriteCond %{REQUEST_URI} !current/
+RewriteRule (.*) /current/$1 [L]
