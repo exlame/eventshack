@@ -20,7 +20,13 @@ $(document).ready(function(){
 			activateUI();
 			set_tab($(activetab));
 	}
-	getLocation();
+	//getLocation();
+	position = {
+		latitude: '48.4268869',
+		longitude: '-71.0639155'
+	};
+			activateUI();
+			set_tab($(activetab));
 	function set_tab(target){
 		var id = $(target).attr('id');
 		
