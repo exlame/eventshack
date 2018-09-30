@@ -25,7 +25,7 @@ function get_cats(){
 			'religion'=>'Religion',
 			'sport'=>'Sports',
 			'theatre'=>'Théâtre',
-			'technology'=>'Technologie',
+			'techn'=>'Technologie',
 			'travel'=>'Voyage'
 	];
 	return $cats;
