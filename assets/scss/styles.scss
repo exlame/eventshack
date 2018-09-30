@@ -162,3 +162,7 @@ h2{
 		right:-10px;
 	}
 }
+
+    .switch label input[type=checkbox]:checked + .lever:after {
+      background-color: $color_2;
+	 }

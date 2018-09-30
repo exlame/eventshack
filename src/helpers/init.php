@@ -4,17 +4,29 @@
 function get_cats(){
 	$cats = [
 			'art'=>'Art',
+			'artisanat'=>'Artisanat',
+			'auto'=>'Auto',
+			'charity'=>'Chatrité',
+			'comédie'=>'Comédie',
+			'culture'=>'Culture',
+			'family'=>'Famille',
+			'fashion'=>'Fashion',
+			'film'=>'Film',
 			'food'=>'Nourriture',
 			'family'=>'Famille',
-			'music'=>'Musique',
-			'theatre'=>'Théâtre',
 			'health'=>'Santé',
-			'religion'=>'Religion',
-			'culture'=>'Culture',
-			'sport'=>'Sports',
-			'auto'=>'Auto',
+			'hobbies'=>'Hobbie',
+			'littérature'=>'Littérature',
+			'music'=>'Musique',
+			'other'=>'Autre',
+			'photo'=>'Photographie',
+			'politics'=>'Politique',
 			'profess'=>'Professionnel',
-			'technology'=>'Technologie'
+			'religion'=>'Religion',
+			'sport'=>'Sports',
+			'theatre'=>'Théâtre',
+			'technology'=>'Technologie',
+			'travel'=>'Voyage'
 	];
 	return $cats;
 }
