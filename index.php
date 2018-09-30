@@ -11,6 +11,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     // The /{title} suffix is optional
     $r->addRoute('POST', '/get/{component}', 'get');
     $r->addRoute('GET', '/get/{component}', 'get');
+    $r->addRoute('GET', '/events', 'events');
     $r->addRoute('GET', '/set_config/{key}/{value}', 'set_config');
 });
 

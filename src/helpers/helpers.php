@@ -70,8 +70,20 @@ function get_events($filters = null, $pos = null){
 		$where[] = '((DAYOFWEEK(start_time) BETWEEN 6 AND 7 OR DAYOFWEEK(start_time) = 1 ) OR DAYOFWEEK(start_time) = 6 AND HOUR(start_time) BETWEEN 16 AND 23)';
 	}
 	
+	if(isset($filters['when'])){
+		if($filters['when'] == 1){
+			$where[] = 'CURDATE() = DATE(start_time)';
+		} elseif($filters['when'] == 2){
+			$where[] = 'CURDATE()+ INTERVAL 1 DAY = DATE(start_time)';
+		} else {
+			$where[] = 'DATE(start_time) BETWEEN CURDATE()+ INTERVAL 1 DAY AND CURDATE()+ INTERVAL 7 DAY';
+		}
+	}
+	
 	if ($where){
 		$where = ' WHERE '. implode(' AND ',$where);
+	} else {
+		$where = '';
 	}
 	
 	$query = $database->query(
@@ -82,6 +94,7 @@ as distance
 					having distance < 1  
 					ORDER BY distance;");
 $datas = [];
+					//var_dump($query);
 $index=0;
 	while ($data = $query->fetch(PDO::FETCH_ASSOC))
 		{

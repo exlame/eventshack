@@ -17,6 +17,7 @@ $(document).ready(function(){
 				latitude: newposition.coords.latitude,
 				longitude: newposition.coords.longitude
 			};
+			activateUI();
 			set_tab($(activetab));
 	}
 	getLocation();
@@ -66,8 +67,10 @@ $(document).ready(function(){
 	
 	function activateUI(){
 		$('select').formSelect();
+		if($("#tab2").length){
+			get_filtered_events();
+		}
 	}
-	activateUI();
 	
 	$('body').on('click', '#tab4 input', function(){
 		var value = 0;
@@ -77,5 +80,18 @@ $(document).ready(function(){
 		$.get('/set_config/'+$(this).attr('name')+'/'+value);
 	});
 	
-
+	function get_filtered_events(){
+		var data = $( "form" ).serialize();
+		
+		$("#tab2 .ajax_content>.row").load('/events',data + '&lat='+position.latitude+'&long='+position.longitude,function(content){
+			$(this).find('img').each(function(){
+				$(this).closest('.card').fadeIn();
+			});				 
+		});
+	}
+		
+	
+	$('body').on('change', '#tab2 select', function(){
+		get_filtered_events();
+	});
 }); 
