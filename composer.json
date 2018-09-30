@@ -9,6 +9,7 @@
     ],
     "require": {
         "catfan/Medoo": "^1.5",
-        "nikic/fast-route": "^1.3"
+        "nikic/fast-route": "^1.3",
+        "deployer/deployer": "^6.3"
     }
 }

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
+require 'env.php';
 require 'src/helpers/querys.php';
 require 'src/helpers/views.php';
 require 'src/helpers/init.php';
