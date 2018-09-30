@@ -1,5 +1,5 @@
 /node_modules/
-*.js
 
 /vendor/
 /env.php
+/gulpfile.js
