@@ -1,8 +1,12 @@
 <?php
 session_start();
 require 'vendor/autoload.php';
-require 'src/helpers/helpers.php';
+require 'src/helpers/querys.php';
+require 'src/helpers/views.php';
+require 'src/helpers/init.php';
 
+date_default_timezone_set('America/New_York');
+setlocale(LC_TIME, "fr_FR");
 set_session_default();
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'home');
@@ -12,6 +16,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/get/{component}', 'get');
     $r->addRoute('GET', '/get/{component}', 'get');
     $r->addRoute('GET', '/events', 'events');
+    $r->addRoute('GET', '/favorite/{action}/{id}', 'favorite');
     $r->addRoute('GET', '/set_config/{key}/{value}', 'set_config');
 });
 

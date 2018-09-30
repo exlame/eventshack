@@ -2,20 +2,20 @@
 
 $params = [
 		'when' => $_GET['when'],
-		'cat_art' => false,
-		'cat_musique' => false,
-		'cat_humour' => false,
-		'cat_theatre' => false,
 		'dispo_night' => true,
 		'dispo_day' => true,
 		'dispo_week' => true,
-		'dispo_weekend' => true
+		'dispo_weekend' => true,
+		'distance' => 50
 ];
-
+foreach(get_cats() as $key=>$text){
+	$params['cat_'.$key] = false;
+}
 if(isset($_GET['cat']))
 	foreach($_GET['cat'] as $cat){
 		$params[$cat] = true;
 	}
+$params['distance'] = $_GET['distance'];
 display_events($params, $_GET);
 /*
 $_SESSION['params'] = array(

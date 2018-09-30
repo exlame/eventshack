@@ -6536,7 +6536,7 @@ input[type=range]::-ms-thumb {
 
 .content {
   margin-bottom: 70px; }
-  .content > .row {
+  .content .row {
     margin-left: 0;
     margin-right: 0; }
 
@@ -6557,9 +6557,30 @@ h2 {
 .card {
   display: none; }
 
-.card-action .badge {
+.card .cat {
   background: #26a69a;
   color: #fff; }
+
+.card .card-date {
+  text-align: right;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 0; }
+
+.card .card-hour {
+  text-align: right;
+  font-weight: 300;
+  font-size: 24px;
+  margin-bottom: 0;
+  margin-top: 0; }
+
+.card .card-address {
+  text-align: right;
+  font-weight: 300;
+  margin-top: 0; }
+
+.card .btn_favorite.added {
+  background: red; }
 
 .filtres {
   width: 90%;
@@ -6588,3 +6609,18 @@ h2 {
 .row {
   margin-left: 0;
   margin-right: 0; }
+
+.card-content .card-title {
+  position: relative;
+  width: 95%; }
+  .card-content .card-title i {
+    position: absolute;
+    top: 0px;
+    right: -20px; }
+
+.card-reveal .card-title {
+  position: relative; }
+  .card-reveal .card-title i {
+    position: absolute;
+    top: -10px;
+    right: -10px; }

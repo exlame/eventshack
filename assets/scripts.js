@@ -80,6 +80,12 @@ $(document).ready(function(){
 		$.get('/set_config/'+$(this).attr('name')+'/'+value);
 	});
 	
+	$('body').on('change', '#tab4 select', function(){
+		$.get('/set_config/'+$(this).attr('name')+'/'+$(this).val());
+	});
+	
+	
+	
 	function get_filtered_events(){
 		var data = $( "form" ).serialize();
 		
@@ -93,5 +99,21 @@ $(document).ready(function(){
 	
 	$('body').on('change', '#tab2 select', function(){
 		get_filtered_events();
+	});
+	
+	$('body').on('click', '.btn_favorite', function(){
+		var btn = $(this);
+		var id = btn.closest('.card').data('id');
+		if($(this).hasClass('added')){
+			$.get('/favorite/remove/'+id, function(){
+				btn.removeClass('added');
+			});
+		} else {
+			$.get('/favorite/add/'+id, function(){
+				btn.addClass('added');
+			});
+		}
+		
+
 	});
 }); 

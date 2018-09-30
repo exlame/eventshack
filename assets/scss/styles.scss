@@ -29,7 +29,7 @@ $color_2:#26a69a;
 }  
 .content{
 	margin-bottom:70px;
-	>.row{
+	.row{
 		margin-left:0;
 		margin-right:0;
 	}
@@ -65,10 +65,31 @@ h2{
 	
 }
 
-.card-action{
-	.badge{
+.card{
+	.cat{
 		background:$color_2;
 		color:#fff;
+	}
+	.card-date{
+		text-align:right;
+		font-weight:300;
+		margin-top:0;
+		margin-bottom:0;
+	}
+	.card-hour{
+		text-align:right;
+		font-weight:300;
+		font-size:24px;
+		margin-bottom:0;
+		margin-top:0;
+	}
+	.card-address{
+		text-align:right;
+		font-weight:300;
+		margin-top:0;
+	}
+	.btn_favorite.added{
+		background:red;
 	}
 }
 
@@ -108,4 +129,21 @@ h2{
 .row{
 	margin-left:0;
 	margin-right:0;
+}
+.card-content .card-title{
+	position:relative;
+	width:95%;
+	i{
+		position:absolute;
+		top:0px;
+		right:-20px;
+	}
+}
+.card-reveal .card-title{
+	position:relative;
+	i{
+		position:absolute;
+		top:-10px;
+		right:-10px;
+	}
 }

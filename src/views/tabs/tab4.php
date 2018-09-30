@@ -1,11 +1,3 @@
-<?php 
-	function set_input($name){ 
-		$params = $_SESSION['params'];
-		?>
-<input<?php if($params[$name]) { ?> checked<?php } ?> name="<?= $name ?>" type="checkbox">
-	<?php }
-?>
-
 <h2>Notifications</h2>
 <div class="container">
 	<div class="switch">
@@ -34,34 +26,18 @@
 
 <h2>Ce que j'<i class="material-icons">favorite</i></h2>
 <div class="container">
-	<div class="switch">
-		 <label>
-			 Art
-			 <?php set_input('cat_art') ?>
-			 <span class="lever"></span>
-		 </label>
-  </div>
-	<div class="switch">
-		 <label>
-			 Musique
-			 <?php set_input('cat_musique') ?>
-			 <span class="lever"></span>
-		 </label>
-  </div>
-	<div class="switch">
-		 <label>
-			 Théâtre
-			 <?php set_input('cat_theatre') ?>
-			 <span class="lever"></span>
-		 </label>
-  </div>
-	<div class="switch">
-		 <label>
-			 Humour
-			 <?php set_input('cat_humour') ?>
-			 <span class="lever"></span>
-		 </label>
-  </div>
+	<?php 
+		foreach(get_cats() as $key=>$text){ ?>
+			<div class="switch">
+				<label>
+						<?= $text ?>
+					<?php set_input('cat_'.$key) ?>
+					<span class="lever"></span>
+				</label>
+			</div>
+	
+	<?php 	}
+	?>
 </div>
 
 <h2>Mes disponibilités</h2>
@@ -94,4 +70,18 @@
 			 <span class="lever"></span>
 		 </label>
   </div>
+	</div>
+	
+<h2>Distance</h2>
+<div class="container">
+	<div class="input-field col s12">
+    <select id="distance" name="distance">
+			<?php set_option('distance', '5', '5') ?>
+			<?php set_option('distance', '10', '10') ?>
+			<?php set_option('distance', '50', '50') ?>
+			<?php set_option('distance', '100', '100') ?>
+			<?php set_option('distance', '1000000', '1000000') ?>
+    </select>
+  
+	</div>
 </div>
