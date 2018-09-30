@@ -7,7 +7,7 @@ require 'src/helpers/views.php';
 require 'src/helpers/init.php';
 
 date_default_timezone_set('America/New_York');
-setlocale(LC_TIME, "fr_FR");
+setlocale(LC_TIME, "fr_CA");
 set_session_default();
 $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/', 'home');
